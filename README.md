@@ -2,7 +2,7 @@
 This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, including snippets that include ped and vehicle interactions [Samuel#0008] 👋 
 
 ## Credits
----
+
 - All the credits go to BerkieBBs qb-target, the creators of q-target for rewriting all of the clunky code from bt-target.
 
 - Biggest credit of all goes to brentN5 for conceptualizing the targeting system!
