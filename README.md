@@ -1,11 +1,14 @@
 # qb-target
-This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, including snippets that include ped and vehicle interactions [Samuel#0008] 👋 
+
+qb-target is a targeting solution that allows interaction with any predefined entity, model, entity type or polyzone. While activated you can easily and safely replace markers and distance checking, instead relying on intuitive design to improve player experiences and optimize interaction.
 
 ## Credits
 
-- All the credits go to BerkieBBs qb-target, the creators of q-target for rewriting all of the clunky code from bt-target.
+* Lots of credits goes to [qtarget](https://github.com/overextended/qtarget) for rewriting all of bt-target to make it more optimized and this resource is pretty much a fork of it.
 
-- Biggest credit of all goes to brentN5 for conceptualizing the targeting system!
+* Huge credit to [bt-target](https://github.com/brentN5/bt-target) from brentN5 for making the target a thing!
+
+* Credit to [ms-peds](https://github.com/MiddleSkillz/ms-peds) for allowing me to use their awesome ped spawner inside the target!
 
 ## Dependency
 
@@ -23,8 +26,7 @@ You are free to help through Pull Requests and leave as much suggestions or issu
 
 The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can be made on request, just let me know!
 
-## Features
-
+## Features 
 - Maintains compatibility with bt-target while providing improved utility and performance
 - Optimised and improved raycasting function allows interaction with a wider range of entities
 - Add generic options to apply for all players, peds, vehicles, or objects
@@ -34,7 +36,7 @@ The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can 
 - Update option list when moving towards or away from a target with variable distances on their options
 - Support for entity bones, with builtin tables for opening doors
 - Support checking for job, gang, citizenid, items, or specific entities
-- Utilise the canInteract function for advanced checks to show or hide an option based on any trigger
+- Utilise the `canInteract` function for advanced checks to show or hide an option based on any trigger
 - Ped spawner to spawn peds and assign target options to them all in one place
 
 ## Issues and Suggestions

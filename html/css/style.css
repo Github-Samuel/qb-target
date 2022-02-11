@@ -1,0 +1,50 @@
+body {
+    font-family: "Courier New", Courier, monospace;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+
+.target-wrapper {
+    display: none;
+}
+
+#target-eye {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    font-size: 2.7vh;
+    text-shadow: 0.1vh 0.1vh 0.1vh #000000;
+}
+
+.target-label-wrapper {
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: row;
+    left: 86.5vh;
+    width: fit-content;
+    height: 100%;
+    top: 53.25%;
+}
+
+.target-label {
+    list-style: none;
+    font-size: 1.7vh;
+    font-family: Arial, Helvetica, sans-serif!;
+    letter-spacing: 0.7px;
+    font-weight: 600;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: none;
+    color: #fff;
+    user-select: none;
+    white-space: nowrap;
+    text-shadow: 0.1vh 0.1vh 0.1vh #000000;
+}
+
+.target-icon {
+    color: #00ffac;
+}
