@@ -1,12 +1,6 @@
 # Hello!
 This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, including snippets that include ped and vehicle interactions [Samuel#0008] 👋 
 
-qb-target
---- 
-
-qb-target is a targeting solution similiar to q-target and bt-target that similiarly allows for interaction with any predfined entity, model or PolyZone. 
-
-
 Credits
 ---
 - All the credits go to BerkieBBs qb-target, the creators of q-target for rewriting all of the clunky code from bt-target.
