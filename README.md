@@ -7,9 +7,6 @@ This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, 
 
 - Biggest credit of all goes to brentN5 for conceptualizing the targeting system!
 
-[bt-target](https://github.com/brentN5/bt-target)   [qtarget](https://github.com/overextended/qtarget)
-
-
 ## Dependency
 
 * [PolyZone](https://github.com/mkafrin/PolyZone)
