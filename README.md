@@ -1,28 +1,33 @@
-# Hello!
+# qb-target
 This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, including snippets that include ped and vehicle interactions [Samuel#0008] 👋 
 
-Credits
+## Credits
 ---
 - All the credits go to BerkieBBs qb-target, the creators of q-target for rewriting all of the clunky code from bt-target.
 
 - Biggest credit of all goes to brentN5 for conceptualizing the targeting system!
 
+[bt-target](https://github.com/brentN5/bt-target)   [qtarget](https://github.com/overextended/qtarget)
 
-Dependency
----
-- QBCore
-- PolyZone
 
-Information
----
+## Dependency
+
+* [PolyZone](https://github.com/mkafrin/PolyZone)
+
+## Optional Dependency
+
+* [QBCore](https://github.com/qbcore-framework/qb-core)
+
+## Information
+
 This repository was originally a direct fork and now it's own repository as it's basically qtarget but with lots of changes to it to make it better, most of the code comes from qtarget as I find their work awesome on this and what they've achieved with it.
 
 You are free to help through Pull Requests and leave as much suggestions or issues, I love some help!
 
 The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can be made on request, just let me know!
 
-Features
----
+## Features
+
 - Maintains compatibility with bt-target while providing improved utility and performance
 - Optimised and improved raycasting function allows interaction with a wider range of entities
 - Add generic options to apply for all players, peds, vehicles, or objects
@@ -34,3 +39,6 @@ Features
 - Support checking for job, gang, citizenid, items, or specific entities
 - Utilise the canInteract function for advanced checks to show or hide an option based on any trigger
 - Ped spawner to spawn peds and assign target options to them all in one place
+
+## Issues and Suggestions
+Please use the GitHub issues system to report issues or make suggestions, when making suggestion, please keep `[Suggestion]` in the title to make it clear that it is a suggestion or join the [discord](https://discord.gg/qbcore).
