@@ -1,4 +1,9 @@
-# qb-target
+## qb-target
+
+
+## Hello! 
+This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, including snippets that include ped and vehicle interactions [Samuel#0008] 👋 
+
 
 qb-target is a targeting solution that allows interaction with any predefined entity, model, entity type or polyzone. While activated you can easily and safely replace markers and distance checking, instead relying on intuitive design to improve player experiences and optimize interaction.
 
