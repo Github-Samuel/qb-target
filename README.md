@@ -4,7 +4,7 @@
 I've been seeing a lot of people struggle in the QBCore community discord, with adding ped and vehicle interaction!
 This is a fork from BerkieBBs qb-target containing slight CSS and HTML changes, including snippets that include ped and vehicle interactions [Samuel#0008] 👋 
 
-Everything below this will essentially be a copy and paste from the main berkieBBs github Repo! 👋 👋 
+Everything below this will essentially be a copy and paste from the main berkieBBs github Repo besides of course the functions neccessary for the Shops etc! 👋 👋 
 
 ---
 
@@ -49,3 +49,50 @@ The TEMPLATES.md and EXAMPLES.md are always being improved and new examples can 
 
 ## Issues and Suggestions
 Please use the GitHub issues system to report issues or make suggestions, when making suggestion, please keep `[Suggestion]` in the title to make it clear that it is a suggestion or join the [discord](https://discord.gg/qbcore).
+
+## Extras (Shops)
+
+Add this at the bottom of your qb-shops/client/main.lua
+--
+
+```RegisterNetEvent('qb-shops:247clerk')
+AddEventHandler('qb-shops:247clerk', function(shop, itemData, amount)
+        local InRange = false
+        local PlayerPed = PlayerPedId()
+        local PlayerPos = GetEntityCoords(PlayerPed)
+
+        for shop, _ in pairs(Config.Locations) do
+            local position = Config.Locations[shop]["coords"]
+            for _, loc in pairs(position) do
+                local dist = #(PlayerPos - vector3(loc["x"], loc["y"], loc["z"]))
+                if dist < 10 then
+
+                        local ShopItems = {}
+                        ShopItems.items = {}
+                        QBCore.Functions.TriggerCallback('qb-shops:server:getLicenseStatus', function(result)
+                            ShopItems.label = Config.Locations[shop]["label"]
+                            if Config.Locations[shop].type == "weapon" then
+                                if result then
+                                    ShopItems.items = Config.Locations[shop]["products"]
+                                else
+                                    for i = 1, #Config.Locations[shop]["products"] do
+                                        if not Config.Locations[shop]["products"][i].requiresLicense then
+                                            table.insert(ShopItems.items, Config.Locations[shop]["products"][i])
+                                        end
+                                    end
+                                end
+                            else
+                                ShopItems.items = Config.Locations[shop]["products"]
+                            end
+                            ShopItems.slots = 30
+                            TriggerServerEvent("inventory:server:OpenInventory", "shop", "Itemshop_"..shop, ShopItems)
+                        end)
+                    end
+                end
+            end
+
+        if not InRange then
+            Citizen.Wait(5000)
+        end
+        Citizen.Wait(5)
+end) ```
