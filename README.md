@@ -52,7 +52,7 @@ Please use the GitHub issues system to report issues or make suggestions, when m
 
 ## Extras (Shops)
 
-Add this at the bottom of your qb-shops/client/main.lua
+Add this at the bottom of your qb-shops/client/main.lua and remove the marker function!
 --
 
 ```RegisterNetEvent('qb-shops:247clerk')
