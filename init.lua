@@ -105,6 +105,42 @@ Config.TargetBones = {
         },
         distance = 3.0
     },
+	
+	["Shops"] = {
+        models = {
+            `mp_m_shopkeep_01`,
+		`s_m_y_construct_01`,
+		`mp_m_weapexp_01`,
+                `ig_jimmyboston_02`,
+
+        },
+        options = {
+            {
+                type = "client",
+                event = "qb-shops:247clerk",
+                icon = "fas fa-shopping-basket",
+                label = "Enter shop",
+                --job = "police",
+            },
+        },
+        distance = 2.5
+    },
+	["Weed"] = {
+        models = {
+            `mp_m_weed_01`,
+
+        },
+        options = {
+            {
+                type = "client",
+                event = "qb-shops:247clerk",
+                icon = "fas fa-shopping-basket",
+                label = "Browse Weed Shop",
+                --job = "police",
+            },
+        },
+        distance = 2.5
+    },
     
 }
 
