@@ -95,4 +95,5 @@ AddEventHandler('qb-shops:247clerk', function(shop, itemData, amount)
             Citizen.Wait(5000)
         end
         Citizen.Wait(5)
-end) ```
+end)
+
