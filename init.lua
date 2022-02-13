@@ -105,8 +105,18 @@ Config.TargetBones = {
         },
         distance = 3.0
     },
+
+    
+}
+
+
+Config.TargetEntities = {
+
+}
+
+Config.TargetModels = {
 	
-	["Shops"] = {
+		["Shops"] = {
         models = {
             `mp_m_shopkeep_01`,
 		`s_m_y_construct_01`,
@@ -141,15 +151,6 @@ Config.TargetBones = {
         },
         distance = 2.5
     },
-    
-}
-
-
-Config.TargetEntities = {
-
-}
-
-Config.TargetModels = {
 
 }
 
