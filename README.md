@@ -55,7 +55,8 @@ Please use the GitHub issues system to report issues or make suggestions, when m
 Add this at the bottom of your qb-shops/client/main.lua and remove the marker function!
 --
 
-```RegisterNetEvent('qb-shops:247clerk', function()
+```
+RegisterNetEvent('qb-shops:247clerk', function()
 for shop, _ in pairs(Config.Locations) do
     local position = Config.Locations[shop]["coords"]
     local products = Config.Locations[shop].products
