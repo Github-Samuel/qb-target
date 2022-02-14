@@ -55,45 +55,51 @@ Please use the GitHub issues system to report issues or make suggestions, when m
 Add this at the bottom of your qb-shops/client/main.lua and remove the marker function!
 --
 
-```RegisterNetEvent('qb-shops:247clerk')
-AddEventHandler('qb-shops:247clerk', function(shop, itemData, amount)
-        local InRange = false
-        local PlayerPed = PlayerPedId()
-        local PlayerPos = GetEntityCoords(PlayerPed)
-
-        for shop, _ in pairs(Config.Locations) do
-            local position = Config.Locations[shop]["coords"]
-            for _, loc in pairs(position) do
-                local dist = #(PlayerPos - vector3(loc["x"], loc["y"], loc["z"]))
-                if dist < 10 then
-
-                        local ShopItems = {}
-                        ShopItems.items = {}
-                        QBCore.Functions.TriggerCallback('qb-shops:server:getLicenseStatus', function(result)
-                            ShopItems.label = Config.Locations[shop]["label"]
-                            if Config.Locations[shop].type == "weapon" then
-                                if result then
-                                    ShopItems.items = Config.Locations[shop]["products"]
+```RegisterNetEvent('qb-shops:247clerk', function()
+for shop, _ in pairs(Config.Locations) do
+    local position = Config.Locations[shop]["coords"]
+    local products = Config.Locations[shop].products
+    for _, loc in pairs(position) do
+        local dist = #(GetEntityCoords(PlayerPedId()) - vector3(loc["x"], loc["y"], loc["z"]))
+            if dist < 3 then
+                local ShopItems = {}
+                ShopItems.items = {}
+                QBCore.Functions.TriggerCallback("qb-shops:server:getLicenseStatus", function(hasLicense, hasLicenseItem)
+                    ShopItems.label = Config.Locations[shop]["label"]
+                    if Config.Locations[shop].products == Config.Products["weapons"] then
+                        if hasLicense and hasLicenseItem then
+                            ShopItems.items = SetupItems(shop)
+                            QBCore.Functions.Notify(Lang:t("success.dealer_verify"), "success")
+                            Wait(500)
+                        else
+                            for i = 1, #products do
+                                if not products[i].requiredJob then
+                                    if not products[i].requiresLicense then
+                                        ShopItems.items[#ShopItems.items+1] = products[i]
+                                    end
                                 else
-                                    for i = 1, #Config.Locations[shop]["products"] do
-                                        if not Config.Locations[shop]["products"][i].requiresLicense then
-                                            table.insert(ShopItems.items, Config.Locations[shop]["products"][i])
+                                    for i2 = 1, #products[i].requiredJob do
+                                        if QBCore.Functions.GetPlayerData().job.name == products[i].requiredJob[i2] and not products[i].requiresLicense then
+                                            ShopItems.items[#ShopItems.items+1] = products[i]
                                         end
                                     end
                                 end
-                            else
-                                ShopItems.items = Config.Locations[shop]["products"]
                             end
-                            ShopItems.slots = 30
-                            TriggerServerEvent("inventory:server:OpenInventory", "shop", "Itemshop_"..shop, ShopItems)
-                        end)
+                        end
+                        else
+                            QBCore.Functions.Notify(Lang:t("error.dealer_decline"), "error")
+                            Wait(500)
+                            QBCore.Functions.Notify(Lang:t("error.talk_cop"), "error")
+                            Wait(1000)
+                            ShopItems.items = SetupItems(shop)
                     end
-                end
+                    for k, v in pairs(ShopItems.items) do
+                        ShopItems.items[k].slot = k
+                    end
+                    ShopItems.slots = 30
+                    TriggerServerEvent("inventory:server:OpenInventory", "shop", "Itemshop_"..shop, ShopItems)
+                end)
             end
-
-        if not InRange then
-            Citizen.Wait(5000)
         end
-        Citizen.Wait(5)
+    end
 end)
-
